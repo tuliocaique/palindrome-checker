@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromos</title>
+    <script>
+        function checkInput() {
+            const input = document.getElementById('input').value;
+            fetch(`/check?input=${input}`)
+                .then(response => response.json())
+                .then(result => {
+                    document.getElementById('output').innerHTML = result.text;
+                });
+        }
+    </script>
+    <style>
+        .success {
+            color: #fff;
+            background-color: green;
+        }
+        .error {
+            color: #fff;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Verificador de Palíndromos</h1>
+
+        <label for="input">Escreva uma entrada:</label>
+        <input type="search" id="input" required>
+        <button onclick="checkInput()">Verificar</button>
+
+        <div id="output"></div>
+    </div>
+</body>
+</html>
