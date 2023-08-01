@@ -28,8 +28,10 @@ app.use(express.static('public_html'));
 
 // Rota para verificar palíndromo
 app.get('/check', (req, res) => {
+    const isInputPalindrome = isPalindrome(req.query.input);
     res.send({
-        text: isPalindrome(req.query.input) ? '<p class="success">É um palíndromo</p>' : '<p class="error">Não é um palíndromo</p>'
+        isInputPalindrome: isInputPalindrome,
+        textFormatted: isInputPalindrome ? '<p class="success">É um palíndromo</p>' : '<p class="error">Não é um palíndromo</p>'
     });
 });
 
