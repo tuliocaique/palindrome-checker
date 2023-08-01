@@ -10,7 +10,7 @@
             fetch(`/check?input=${input}`)
                 .then(response => response.json())
                 .then(result => {
-                    document.getElementById('output').innerHTML = result.text;
+                    document.getElementById('output').innerHTML = result.textFormatted;
                 });
         }
     </script>
